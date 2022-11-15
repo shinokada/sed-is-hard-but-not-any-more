@@ -1,0 +1,13 @@
+1 line line line line
+2 there is a space under this line
+
+4 regex
+5 line line line line
+6 line line line line
+7 line line line line
+8 regex
+9 line line line line line
+10 there is a space under this line
+
+12 line line line line
+13 line line line line

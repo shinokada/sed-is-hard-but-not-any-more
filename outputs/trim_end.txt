@@ -1,0 +1,16 @@
+# spaces at the end
+
+4 spaces
+4 spaces
+2 tabs
+
+# spaces/tab at the front
+
+     5 spaces
+    4 spaces
+  one tab
+
+# spaces in both
+
+    5 spaces in both
+  1 tab in both

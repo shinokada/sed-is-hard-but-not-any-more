@@ -1,0 +1,13 @@
+line line line linE
+there is a space under this linE
+
+regEx
+line line line linE
+line line line linE
+line line line linE
+regEx
+line line line line linE
+there is a space under this linE
+
+line line line linE
+line line line linE

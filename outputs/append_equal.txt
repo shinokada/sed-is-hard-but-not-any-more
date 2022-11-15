@@ -1,0 +1,4 @@
+line
+line  line with equal sign
+
+line  line with equal sign  line with equal sign

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>50 sed Command Examples</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="themes/packages/prism-coy-theme/theme_common.css">
+</head>
+
+<body>
+  <section id="50-sed-command-examples" class="level1">
+    <h1>50 <code>sed</code> Command Examples</h1>
+    <p>From <a href="https://linuxhint.com/50_sed_command_examples">50 sed command examples</a></p>
+    <p><code>sed</code> is a useful text processing feature of GNU/Linux. The full form of <code>sed</code> is Stream
+      Editor. Many types of simple and complicated text processing tasks can be done very easily by using
+      <code>sed</code> command. Any particular string in a text or a file can be searched, replaced and deleted by using
+      regular expression with <code>sed</code> command. But this commands performs all types of modification temporarily
+      and the original file content is not changed by default. The user can store the modified content into another file
+      if needs. The basic uses of <code>sed</code> command are explained in this tutorial by using 50 unique
+      examples.Before starting this tutorial you must check the installed version of <code>sed</code> in your operating
+      system by running the following command. The tutorial is designed based on GNU sed. So this version of
+      <code>sed</code> will be required to practice the examples shown in this tutorial.</p>
+    <pre class="language-text"><code class="language-text">$ sed --version</code></pre>
+    <p>The following output shows that GNU Sed of version 4.4 is installed in the system.</p>
+    <section id="syntax" class="level2">
+      <h2>Syntax:</h2>
+      <pre class="language-text"><code class="language-text">sed [options]…  [script] [file]</code></pre>
+      <p>If no filename is provided with <code>sed</code> command, then the script will work on standard input data. The
+        <code>sed</code> script can be executed without any option.</p>
+    </section>
+    <section id="content" class="level2">
+      <h2>Content:</h2>
+      <ul>
+        <li>Basic text substitution using ‘sed’</li>
+        <li>Replace all instances of a text in a particular line of a file by using ‘g’ option</li>
+        <li>Replace the second occurrence only of a match on each line</li>
+        <li>Replace the last occurrence only of a match on each line</li>
+        <li>Replace the first match in a file with new text</li>
+      </ul>
+    </section>
+    <section id="basic-text-substitution-using-sed" class="level2">
+      <h2>Basic text substitution using ‘sed’</h2>
+      <p>Any particular part of a text can be searched and replaced by using searching and replacing pattern by using
+        <code>sed</code> command. In the following example, ‘s’ indicates the search and replace task. The word ‘Bash’
+        will be searched in the text, “Bash Scripting Language” and if the word exists in the text then it will be
+        replaced by the word ‘Perl’.</p>
+      <pre
+        class="language-text"><code class="language-text">$ echo "Bash Scripting Language" | sed 's/Bash/Perl/'</code></pre>
+      <section id="output" class="level3">
+        <h3>Output:</h3>
+        <p>The word, ‘Bash’ exists in the text. So the output is ‘Perl Scripting Language’.</p>
+        <pre class="language-text"><code class="language-text">Perl Scripting Language</code></pre>
+        <p><code>sed</code> command can be used to substitution any part of a file content also. Create a text file
+          named weekday.txt with the following content.</p>
+      </section>
+      <section id="weekdaytxt" class="level3">
+        <h3>weekday.txt</h3>
+        <pre class="language-text"><code class="language-text">Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+Sunday</code></pre>
+        <p>The following command will search and replace the text ‘Sunday ‘, by the text ‘Sunday is holiday’.</p>
+        <pre class="language-text"><code class="language-text">$ cat weekday.txt
+$ sed 's/Sunday/Sunday is holiday/' weekday.txt</code></pre>
+      </section>
+      <section id="output-1" class="level3">
+        <h3>Output:</h3>
+        <p>‘Sunday’ exists in weekday.txt file and this word is replaced by the text, ‘Sunday is holiday’ after
+          executing the above <code>sed</code> command.</p>
+        <pre class="language-text"><code class="language-text">Monday 
+Tuesday 
+Wednesday 
+Thursday 
+Friday 
+Saturday 
+Sunday is holiday</code></pre>
+      </section>
+    </section>
+    <section id="replace-all-instances-of-a-text-in-a-particular-line-of-a-file-using-g-option" class="level2">
+      <h2>Replace all instances of a text in a particular line of a file using ‘g’ option</h2>
+      <p>‘g’ option is used in <code>sed</code> command to replace all occurrences of matching pattern. Create a text
+        file named python.txt with the following content to know the use of ‘g’ option. This file contains the word.
+        ‘Python’ multiple times.</p>
+      <p>python.txt</p>
+      <pre class="language-text"><code class="language-text">Python is a very popular language.
+Python is easy to use. Python is easy to learn.
+Python is a cross-platform language</code></pre>
+      <p>The following command will replace all occurrences of ‘Python’ in the second line of the file, python.txt.
+        Here, ‘Python’ occurs two times in the second line.</p>
+      <pre class="language-text"><code class="language-text">$ cat python.txt
+$ sed '2 s/Python/perl/g' python.txt</code></pre>
+      <section id="output-2" class="level3">
+        <h3>Output:</h3>
+        <p>The following output will appear after running the script. Here, All occurrence of ‘Python’ in the second
+          line is replaced by ‘Perl’.</p>
+        <pre class="language-text"><code class="language-text">Python is a very popular language.
+perl is easy to use. perl is easy to learn.
+Python is a cross-platform language%  </code></pre>
+      </section>
+    </section>
+    <section id="replace-the-second-occurrence-only-of-a-match-on-each-line" class="level2">
+      <h2>Replace the second occurrence only of a match on each line</h2>
+      <p>If any word appears multiple times in a file then the particular occurrence of the word in each line can be
+        replaced by using <code>sed</code> command with the occurrence number. The following <code>sed</code> command
+        will replace the second occurrence of the searching pattern in each line of the file, python.txt.</p>
+      <pre class="language-text"><code class="language-text">$ sed 's/Python/perl/g2' python.txt</code></pre>
+      <section id="output-3" class="level3">
+        <h3>Output:</h3>
+        <p>The following output will appear after running the above command. Here, the searching text, ‘Python’ appears
+          two times in the second line only and it is replaced by the text, ‘perl‘.</p>
+        <pre class="language-text"><code class="language-text">Python is a very popular language.
+Python is easy to use. perl is easy to learn.
+Python is a cross-platform language%  </code></pre>
+      </section>
+    </section>
+    <section id="replace-the-last-occurrence-only-of-a-match-on-each-line" class="level2">
+      <h2>Replace the last occurrence only of a match on each line</h2>
+      <p>Create a text file named lang.txt with the following content.</p>
+      <p>lang.txt</p>
+      <pre class="language-text"><code class="language-text">Bash Programming Language.  Python Programming Language. Perl Programming Language.
+Hypertext Markup Language.
+Extensible Markup Language.</code></pre>
+      <pre
+        class="language-text"><code class="language-text">$ sed 's/\(.*\)Programming/\1Scripting/' lang.txt</code></pre>
+      <p>The <code>\1</code> refers to the characters captured by the escaped parentheses.</p>
+      <p><a href="https://stackoverflow.com/questions/4609949/what-does-1-in-sed-do">Read</a></p>
+      <section id="output-4" class="level3">
+        <h3>Output:</h3>
+        <pre class="language-text"><code class="language-text">Bash Programming Language. Python Programming Language. Perl Scripting Language.
+Hypertext Markup Language.
+Extensible Markup Language.</code></pre>
+      </section>
+    </section>
+
+</body>
+
+</html>
