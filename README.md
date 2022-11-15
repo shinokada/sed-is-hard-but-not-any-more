@@ -1,10 +1,16 @@
-# Sed function library
+# Sed is hard but not any more
 
-Sed is hard.
+Sed is hard but not any more is a sed function library to make your sed life easier.
 
 ## How to use it
 
 Copy [sed_function_library](https://github.com/shinokada/sed-function-library/blob/main/lib/sed_function_library.sh) to your Bash project.
+
+```
+self=$(readlink -f "$0")
+script_dir=${self%/*}
+. "${script_dir}/path/to/sed_function_library.sh"
+```
 
 ## Examples
 
