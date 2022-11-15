@@ -3,13 +3,19 @@ fn_sed() {
   rm ${script_dir}/outputs/*
 
   double_space "${script_dir}/inputs/sample.txt" > "${script_dir}/outputs/double.txt"
+
   triple_space "${script_dir}/inputs/sample.txt" > "${script_dir}/outputs/triple.txt"
+  
   insert_blank_above "${script_dir}/inputs/sample.txt" "regex" > "${script_dir}/outputs/insert_above.txt"
+  
   insert_blank_below "${script_dir}/inputs/sample.txt" "regex" > "${script_dir}/outputs/insert_below.txt"
+  
   insert_blank_above_below "${script_dir}/inputs/sample.txt" "regex" > "${script_dir}/outputs/insert_above_below.txt"
   
   number "${script_dir}/inputs/sample.txt" > "${script_dir}/outputs/number.txt"
+  
   number_aligned "${script_dir}/inputs/sample.txt" > "${script_dir}/outputs/number_aligned.txt"
+  
   number_not_blank "${script_dir}/inputs/sample.txt" > "${script_dir}/outputs/number_not_blank.txt"
 
   count_lines "${script_dir}/inputs/sample.txt" > "${script_dir}/outputs/count_lines.txt"
@@ -23,21 +29,26 @@ fn_sed() {
   insert_5spaces "${script_dir}/inputs/sample2.txt" > "${script_dir}/outputs/insert_5spaces.txt"
 
   align_right "${script_dir}/inputs/sample.txt" > "${script_dir}/outputs/align_right.txt"
+  
   align_right "${script_dir}/inputs/sample.txt" 50 > "${script_dir}/outputs/align_right2.txt"
 
   align_center "${script_dir}/inputs/sample.txt" > "${script_dir}/outputs/align_center.txt"
+  
   align_center2 "${script_dir}/inputs/sample.txt" > "${script_dir}/outputs/align_center2.txt"
 
   # substitute the first e
   replace_a_with_b_at "${script_dir}/inputs/sample.txt" e E > "${script_dir}/outputs/replace_a_with_b_at.txt"
+  
   # substitute the second e
   replace_a_with_b_at "${script_dir}/inputs/sample.txt" e E 2 > "${script_dir}/outputs/replace_a_with_b_at.txt"
+  
   # substitue all e
   replace_a_with_b_at "${script_dir}/inputs/sample.txt" e E g > "${script_dir}/outputs/replace_a_with_b_at.txt"
 
   replace_second_last_a_with_b "${script_dir}/inputs/sample.txt" e E > "${script_dir}/outputs/replace_second_last_a_with_b.txt"
 
   replace_last_a_with_b "${script_dir}/inputs/sample.txt" e E > "${script_dir}/outputs/replace_last_a_with_b.txt"
+  
   # substitute if line contains gex
   replace_a_with_b_contain "${script_dir}/inputs/sample.txt" e E gex> "${script_dir}/outputs/replace_a_with_b_contain.txt"
 
@@ -51,7 +62,8 @@ fn_sed() {
   reverse_line_order "${script_dir}/inputs/sample5.txt" > "${script_dir}/outputs/reverse_line_order.txt"
 
   append_after_backslash "${script_dir}/inputs/sample3.txt" > "${script_dir}/outputs/backslash.txt"
-  append_after_equal "${script_dir}/inputs/sample4.txt" > "${script_dir}/outputs/append_equal.txt"
+  
+  append_equal_to_previous "${script_dir}/inputs/sample4.txt" > "${script_dir}/outputs/append_equal_to_previous.txt"
 
   add_commas_to_nums "${script_dir}/inputs/sample_numbers.txt" > "${script_dir}/outputs/add_commas_to_num.txt"
 

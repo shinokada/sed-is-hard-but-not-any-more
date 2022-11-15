@@ -270,7 +270,7 @@ append_after_backslash(){
   sed -e :a -e '/\\$/N; s/\\\n//; ta' $file
 }
 
-append_after_equal(){
+append_equal_to_previous(){
   # if a line begins with an equal sign, append it to the previous line
   # and replace the "=" with a single space
   file="$1"
